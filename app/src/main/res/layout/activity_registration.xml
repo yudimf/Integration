@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.registration.RegistrationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/registration_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrasi Akun"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/registration_nik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="NIK"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_title"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/registration_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_nik"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/registration_password2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Ketik Ulang Password"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_password"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/registration_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Nama Lengkap"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_password2"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/registration_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Alamat"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_name"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/registration_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="No Telp"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_address"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/registration_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Umur"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_number"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/registration_work"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Pekerjaan"
+            android:minHeight="48dp"
+            app:layout_constraintTop_toBottomOf="@+id/registration_age"
+            tools:layout_editor_absoluteX="20dp"
+            android:inputType="text"/>
+
+        <Button
+            android:id="@+id/btn_registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Registrasi"
+            app:layout_constraintTop_toBottomOf="@+id/registration_work"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

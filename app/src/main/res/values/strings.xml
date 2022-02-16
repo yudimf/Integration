@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">integrasi</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_condition">Persyaratan Pengurusan Hak Integrasi bagi Warga Binaan Lapas Kelas IIA Cibinong</string>
+    <string name="detail_condition">1. Isi Formulir Surat Kesanggupan Penjamin yang ditandatagani diatas materai 10 ribu serta ditandatangani dan dicap oleh Kepala Desa / Kelurahan\n2. Fotocopy Kartu Keluarga (KK) Penjamin\n3. Fotocopy Kartu Tanda Keluarga (KTP) Penjamin\n4. Surat Keterangan Domisili (Apabila alamat KTP tidak sesuai dengan domisili saat ini)</string>
+    <string name="detail2_condition">Foto / Scan Persyaratan tersebut untuk diupload pada aplikasi ini, apabila anda belum memiliki formulir klik link di bawah ini :</string>
+
+</resources>
