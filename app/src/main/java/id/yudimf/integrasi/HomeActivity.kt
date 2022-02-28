@@ -29,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_dashboard, R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }

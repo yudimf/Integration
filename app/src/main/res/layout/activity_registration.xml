@@ -44,7 +44,7 @@
             android:inputType="textPassword"/>
 
         <EditText
-            android:id="@+id/registration_password2"
+            android:id="@+id/registration_password_retype"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -61,7 +61,7 @@
             android:layout_marginTop="10dp"
             android:hint="Nama Lengkap"
             android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/registration_password2"
+            app:layout_constraintTop_toBottomOf="@+id/registration_password_retype"
             tools:layout_editor_absoluteX="20dp"
             android:inputType="text"/>
 
@@ -77,7 +77,7 @@
             android:inputType="text"/>
 
         <EditText
-            android:id="@+id/registration_number"
+            android:id="@+id/registration_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -94,12 +94,12 @@
             android:layout_marginTop="10dp"
             android:hint="Umur"
             android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/registration_number"
+            app:layout_constraintTop_toBottomOf="@+id/registration_phone_number"
             tools:layout_editor_absoluteX="20dp"
             android:inputType="number"/>
 
         <EditText
-            android:id="@+id/registration_work"
+            android:id="@+id/registration_job"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="Registrasi"
-            app:layout_constraintTop_toBottomOf="@+id/registration_work"
+            app:layout_constraintTop_toBottomOf="@+id/registration_job"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
