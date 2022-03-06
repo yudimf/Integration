@@ -11,9 +11,8 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import id.yudimf.integrasi.HomeActivity
 import id.yudimf.integrasi.databinding.FragmentProfileBinding
-import id.yudimf.integrasi.ui.SplashScreenActivity
+import id.yudimf.integrasi.ui.splashscreen.SplashScreenActivity
 import id.yudimf.integrasi.ui.changepassword.ChangePasswordActivity
 import id.yudimf.integrasi.ui.myprofile.MyProfileActivity
 

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import id.yudimf.integrasi.HomeActivity
 import id.yudimf.integrasi.databinding.ActivityLoginBinding
@@ -19,11 +18,11 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var viewModel: LoginViewModel
 
-    lateinit var sharedPreferences : SharedPreferences
+    private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initState()
@@ -36,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
     }
 
     override fun onStart() {
@@ -48,7 +48,12 @@ class LoginActivity : AppCompatActivity() {
                     if (it != null) {
                         if (it.status == true) {
                             val intent = Intent(this, HomeActivity::class.java)
-                            sharedPreferences.edit().putString("nik", it.user?.nik).apply()
+                            sharedPreferences.edit().putString("nik", it.penjamin?.nik).apply()
+                            sharedPreferences.edit().putString("namaPenjamin", it.penjamin?.namaPenjamin).apply()
+                            sharedPreferences.edit().putString("alamatPenjamin", it.penjamin?.alamatPenjamin).apply()
+                            sharedPreferences.edit().putString("pekerjaanPenjamin", it.penjamin?.pekerjaanPenjamin).apply()
+                            sharedPreferences.edit().putString("noTelpPenjamin", it.penjamin?.noTelpPenjamin).apply()
+                            sharedPreferences.edit().putString("umurPenjamin", it.penjamin?.umurPenjamin).apply()
                             Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
                             startActivity(intent)
                             finish()

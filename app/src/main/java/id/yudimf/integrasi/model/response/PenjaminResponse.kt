@@ -1,9 +1,9 @@
 package id.yudimf.integrasi.model.response
 
 import com.google.gson.annotations.SerializedName
-import id.yudimf.integrasi.model.User
+import id.yudimf.integrasi.model.Penjamin
 
-data class UserResponse(
+data class PenjaminResponse(
 
     @SerializedName("status")
     var status: Boolean? = null,
@@ -12,6 +12,6 @@ data class UserResponse(
     var message: String? = null,
 
     @SerializedName("data")
-    var user: User? = null
+    var penjamin: Penjamin? = null
 
 )

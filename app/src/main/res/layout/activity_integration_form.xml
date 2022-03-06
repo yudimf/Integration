@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.inmate.IntegrationFormActivity">
+    tools:context=".ui.wbp.IntegrationFormActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_name"
+                android:id="@+id/form_nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama Warga Binaan"
@@ -42,7 +42,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_case"
+                android:id="@+id/form_perkara"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Perkara"
@@ -57,7 +57,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_year_imprisonment"
+                android:id="@+id/form_tahun_pidana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pidana (dalam tahun)"
@@ -72,7 +72,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_month_imprisonment"
+                android:id="@+id/form_bulan_pidana"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Pidana (dalam bulan)"
@@ -87,7 +87,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_relationship"
+                android:id="@+id/form_hubungan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Hubungan dengan Penjamin"
@@ -95,20 +95,28 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/form_file"
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <TextView
+                android:id="@+id/form_file_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="File Upload"
-                android:inputType="text"/>
+                android:layout_marginTop="10dp"
+                android:layout_weight="8"
+                android:hint="Silahkan Pilih File Formulir" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btn_select"
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"/>
+        </LinearLayout>
 
         <Button
             android:id="@+id/form_btn_save"

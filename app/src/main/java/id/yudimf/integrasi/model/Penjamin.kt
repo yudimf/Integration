@@ -2,7 +2,7 @@ package id.yudimf.integrasi.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
+data class Penjamin(
 
     @SerializedName("NIK")
     var nik: String? = null,

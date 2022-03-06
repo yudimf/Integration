@@ -5,12 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import id.yudimf.integrasi.R
-import id.yudimf.integrasi.databinding.ActivityLoginBinding
 import id.yudimf.integrasi.databinding.ActivityRegistrationBinding
-import id.yudimf.integrasi.model.User
-import id.yudimf.integrasi.ui.login.LoginViewModel
-import java.util.*
+import id.yudimf.integrasi.model.Penjamin
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -47,11 +43,12 @@ class RegistrationActivity : AppCompatActivity() {
                 phoneNumber.isNotEmpty() &&
                 age.isNotEmpty() &&
                 job.isNotEmpty()){
-                val data = User(nik,password,name,address,phoneNumber,age,job)
+                val data = Penjamin(nik,password,name,address,phoneNumber,age,job)
                 Log.d("UserRegistration",data.toString())
                 viewModel.registration(data).observe(this){
                     if (it != null){
                         Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                        finish()
                     }
                     else{
                         Toast.makeText(this, "Registrasi Gagal", Toast.LENGTH_SHORT).show()

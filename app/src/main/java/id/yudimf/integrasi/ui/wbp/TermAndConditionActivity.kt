@@ -1,11 +1,13 @@
-package id.yudimf.integrasi.ui.inmate
+package id.yudimf.integrasi.ui.wbp
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import id.yudimf.integrasi.databinding.ActivityConditionBinding
 
-class ConditionActivity : AppCompatActivity() {
+class TermAndConditionActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityConditionBinding
 
@@ -17,6 +19,12 @@ class ConditionActivity : AppCompatActivity() {
         binding.btnConditionNext.setOnClickListener {
             val intent = Intent(this, IntegrationFormActivity::class.java)
             startActivity(intent)
+            finish()
+        }
+
+        binding.downloadFormulir.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://192.168.50.2/integration-rest/upload/formulir.pdf"))
+            ContextCompat.startActivity(this, browserIntent, null)
         }
 
     }

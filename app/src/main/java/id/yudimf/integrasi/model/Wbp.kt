@@ -1,14 +1,17 @@
 package id.yudimf.integrasi.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 import java.util.*
 
+@Parcelize
 data class Wbp(
 
     @SerializedName("ID_WBP")
     var idWbp: String? = null,
 
-    @SerializedName("NIP_PK_BAPAS  ")
+    @SerializedName("NIP_PK_BAPAS")
     var nipPkBapas: String? = null,
 
     @SerializedName("NIK")
@@ -30,10 +33,10 @@ data class Wbp(
     var hubungan: String? = null,
 
     @SerializedName("STATUS_VALIDASI_WBP")
-    var statusValidasi: String? = null,
+    var statusValidasi: Int? = null,
 
     @SerializedName("TANGGAL_VALIDASI")
-    var tanggalValidasi: Date? = null,
+    var tanggalValidasi: String? = null,
 
     @SerializedName("JENIS_USULAN")
     var jenisUsulan: String? = null,
@@ -44,4 +47,4 @@ data class Wbp(
     @SerializedName("WBP_CREATED_AT")
     var wbpCreatedAt: Date? = null
 
-)
+) : Parcelable

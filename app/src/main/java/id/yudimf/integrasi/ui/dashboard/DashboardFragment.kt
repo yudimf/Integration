@@ -1,6 +1,8 @@
 package id.yudimf.integrasi.ui.dashboard
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,13 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import id.yudimf.integrasi.R
 import id.yudimf.integrasi.adapter.DashboardAdapter
 import id.yudimf.integrasi.databinding.FragmentDashboardBinding
-import id.yudimf.integrasi.model.Inmate
-import id.yudimf.integrasi.ui.inmate.ConditionActivity
-import id.yudimf.integrasi.ui.inmate.InmateDetailActivity
-import id.yudimf.integrasi.ui.login.LoginActivity
+import id.yudimf.integrasi.model.Wbp
+import id.yudimf.integrasi.ui.wbp.TermAndConditionActivity
+import id.yudimf.integrasi.ui.wbp.WbpDetailActivity
 
 class DashboardFragment : Fragment() {
 
@@ -27,37 +27,69 @@ class DashboardFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val dashboardViewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
+    private lateinit var viewModel: DashboardViewModel
+    private lateinit var sharedPreferences : SharedPreferences
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
+        sharedPreferences = requireActivity().getSharedPreferences("UserPref", Context.MODE_PRIVATE)
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val nik = sharedPreferences.getString("nik","").toString()
+        val listWbp = ArrayList<Wbp>()
+        val adapter = DashboardAdapter(listWbp)
+
+        viewModel.getListWbp(nik).observe(requireActivity()){
+            if (it != null){
+                if (it.status == true){
+                    val data = it.listWbp
+                    if (data != null){
+                        listWbp.addAll(data)
+                        binding.recycleViewWbp.visibility = View.VISIBLE
+                        binding.notifKosongDashboard.visibility = View.GONE
+                    }
+                    else{
+                        binding.recycleViewWbp.visibility = View.GONE
+                        binding.notifKosongDashboard.visibility = View.VISIBLE
+                    }
+                    adapter.notifyDataSetChanged()
+                }
+                Log.d("ListWbp",it.toString())
+            }
+            else{
+                Log.d("ListWbp","null")
+            }
+        }
 
         // getting the recyclerview by its id
         val recyclerView : RecyclerView = binding.recycleViewWbp
         recyclerView.layoutManager = LinearLayoutManager(context)
-        val data = ArrayList<Inmate>()
-
-        for (i in 1..20) {
-            data.add(Inmate(R.drawable.ic_outline_person_24, "Warga Binaan $i"))
-        }
-
-        val adapter = DashboardAdapter(data)
-
-        val fab : FloatingActionButton = binding.fab
-        fab.setOnClickListener {
-            val intent = Intent(context, ConditionActivity::class.java)
-            startActivity(intent)
-        }
-
         adapter.setOnItemClickCallback(object : DashboardAdapter.OnItemClickCallback{
-            override fun onItemClicked(data: Inmate) {
-                val intent = Intent(context, InmateDetailActivity::class.java)
+            override fun onItemClicked(data: Wbp) {
+                val intent = Intent(context, WbpDetailActivity::class.java)
+                intent.putExtra(WbpDetailActivity.EXTRA_WBP,data)
                 startActivity(intent)
             }
         })
-
         recyclerView.adapter = adapter
-        return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val fab : FloatingActionButton = binding.fab
+        fab.setOnClickListener {
+            val intent = Intent(context, TermAndConditionActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_progres_tanggal"
+        android:textStyle="italic"
+        android:text="2022-10-2021"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/item_progres_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Sudah Selesai Sidang"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:visibility="visible"
+        android:layout_marginStart="10dp"
+        android:id="@+id/item_progres_keterangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Warga binaan tersebut telah selesai melaksanakan sidang tpp di laoas kelas IIA Cibinong"/>
+
+    <LinearLayout
+        android:id="@+id/layout_detail_sk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:visibility="visible"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="File SK : "/>
+
+        <TextView
+            android:id="@+id/item_progres_filesk"
+            android:text="klik disini"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_primary"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

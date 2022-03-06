@@ -6,86 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".ui.myprofile.MyProfileActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/my_profile_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+        <ImageView
+            android:layout_marginTop="48dp"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/integration_icon"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile Saya"
-            android:textStyle="bold"/>
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_nik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:hint="NIK"
+                android:text="3273281304960002"
+                android:focusableInTouchMode="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/my_profile_nik"
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="NIK"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_title"
-            tools:layout_editor_absoluteX="20dp"
-            android:inputType="number" />
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Lengkap"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/my_profile_name"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Nama Lengkap"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_nik"
-            tools:layout_editor_absoluteX="20dp"
-            android:inputType="text"/>
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="No Telp"
+                android:minHeight="48dp"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/my_profile_address"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Alamat"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_name"
-            tools:layout_editor_absoluteX="20dp"
-            android:inputType="text"/>
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Umur"
+                android:minHeight="48dp"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/my_profile_number"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="No Telp"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_address"
-            tools:layout_editor_absoluteX="20dp"
-            android:inputType="text"/>
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_work"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pekerjaan"
+                android:inputType="text"
+                android:minHeight="48dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/my_profile_age"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Umur"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_number"
-            tools:layout_editor_absoluteX="20dp"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/my_profile_work"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="Pekerjaan"
-            android:inputType="text"
-            android:minHeight="48dp"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_age"
-            tools:layout_editor_absoluteX="20dp" />
+            android:layout_marginTop="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/my_profile_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Alamat"
+                android:minHeight="48dp"
+                android:minLines="1"
+                android:maxLines="8"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btn_my_profile"
@@ -93,9 +113,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="Ubah Profile"
-            app:layout_constraintTop_toBottomOf="@+id/my_profile_work"
             />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

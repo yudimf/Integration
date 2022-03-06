@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.TypeAdapter
-import id.yudimf.integrasi.model.User
-import id.yudimf.integrasi.model.response.UserResponse
+import id.yudimf.integrasi.model.Penjamin
+import id.yudimf.integrasi.model.response.PenjaminResponse
 import id.yudimf.integrasi.retrofit.ApiMain
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,11 +14,11 @@ import java.io.IOException
 
 class UserRepository {
 
-    fun login(nik : String, password : String) : MutableLiveData<UserResponse>{
-        val userResponse = MutableLiveData<UserResponse>()
+    fun login(nik : String, password : String) : MutableLiveData<PenjaminResponse>{
+        val userResponse = MutableLiveData<PenjaminResponse>()
 
-        ApiMain().services.login(nik, password).enqueue(object : Callback<UserResponse>{
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        ApiMain().services.login(nik, password).enqueue(object : Callback<PenjaminResponse>{
+            override fun onResponse(call: Call<PenjaminResponse>, response: Response<PenjaminResponse>) {
                 if (response.isSuccessful){
                     userResponse.postValue(response.body())
                 }
@@ -27,21 +27,21 @@ class UserRepository {
                 }
             }
 
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                userResponse.postValue(UserResponse())
+            override fun onFailure(call: Call<PenjaminResponse>, t: Throwable) {
+                userResponse.postValue(PenjaminResponse())
                 Log.d("LoginResponse",t.stackTraceToString())
             }
         })
         return userResponse
     }
 
-    fun registration(data : User) : MutableLiveData<UserResponse>{
-        val userResponse = MutableLiveData<UserResponse>()
+    fun registration(data : Penjamin) : MutableLiveData<PenjaminResponse>{
+        val userResponse = MutableLiveData<PenjaminResponse>()
 
         Log.d("dataRegistration",data.toString())
 
-        ApiMain().services.registration(data).enqueue(object : Callback<UserResponse>{
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        ApiMain().services.registration(data).enqueue(object : Callback<PenjaminResponse>{
+            override fun onResponse(call: Call<PenjaminResponse>, response: Response<PenjaminResponse>) {
                 if (response.isSuccessful){
                     userResponse.postValue(response.body())
                 }
@@ -51,21 +51,21 @@ class UserRepository {
                 }
             }
 
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                userResponse.postValue(UserResponse())
+            override fun onFailure(call: Call<PenjaminResponse>, t: Throwable) {
+                userResponse.postValue(PenjaminResponse())
                 Log.d("RegistrationResponse",t.stackTraceToString())
             }
         })
         return userResponse
     }
 
-    private fun errorResponse(userResponse : MutableLiveData<UserResponse>, response: Response<UserResponse>){
+    private fun errorResponse(penjaminResponse : MutableLiveData<PenjaminResponse>, response: Response<PenjaminResponse>){
         val gson = Gson()
-        val adapter: TypeAdapter<UserResponse> =
-            gson.getAdapter(UserResponse::class.java)
+        val adapter: TypeAdapter<PenjaminResponse> =
+            gson.getAdapter(PenjaminResponse::class.java)
         try {
             if (response.errorBody() != null)
-                userResponse.postValue(adapter.fromJson(response.errorBody()!!.string()))
+                penjaminResponse.postValue(adapter.fromJson(response.errorBody()!!.string()))
         } catch (e: IOException) {
             e.printStackTrace()
         }
